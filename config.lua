@@ -27,7 +27,7 @@ Config.BubbleGumStandProp = {
 Config.Cooldowns = true
  -- true = Cooldowns Active
  -- false = Cooldowns Disabled
-Config.SlushyCooldownTime = 5 -- Time is in Minutes
+Config.SlushyCooldownTime = 3 -- Time is in Minutes
 Config.SluckyBuckyDonutCooldownTime = 5 -- Time is in Minutes
 Config.GumballStandCooldownTime = 5 -- Time is in Minutes
 
