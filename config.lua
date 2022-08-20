@@ -1,27 +1,52 @@
 Config = {}
 
-Config.Minigame = true
- -- true = Minigame Enabled(qb-lock)
- -- false = Minigame Disabled(qb-lock)
-Config.InteractSound = false
- -- true = Machine Sounds Enabled
- -- false = Machine Sounds Disabled
+Config.Framework = {
 
-Config.SlushyProp = {
-    "prop_slush_dispenser",
-    "prop_juice_dispenser",
+    Target = 'qb-target',
+    -- 'qb-target' = QBCore Target
+    -- 'qtarget' = QTarget
+
+    Minigame = 'qb-skillbar',
+    -- 'qb-lock' = Minigame Enabled(QBCore Lock - NP Inspired)
+    -- 'qb-skillbar' = Minigame Enabled(QBCore Skillbar)
+    -- 'ps-ui' = Minigame Enabled(PS UI Lock Minigame)
+    -- false = Minigame Disabled
+
+    InteractSound = false
+    -- true = Machine Sounds Enabled
+    -- false = Machine Sounds Disabled
 }
 
-Config.DonutProp = {
-    "v_ret_247_donuts",
+Config.Cooldowns = {
+    Cooldown = true, -- true = Cooldown to 'Purchase' Extra Enabled | false = Cooldown to 'Purchase' Extra Disabled
+    SlushyCooldownTime = 5, -- Time is in Minutes
+    SluckyBuckyDonutCooldownTime = 5, -- Time is in Minutes
+    IceCreamCooldownTime = 5, -- Time is in Minutes
+    GumballStandCooldownTime = 5 -- Time is in Minutes
 }
 
-Config.IceCreamProp = {
-    "", -- Unkown LOL
+Config.Props = {
+    SlushyProp = {
+        "prop_slush_dispenser",
+        "prop_juice_dispenser",
+    },
+    DonutProp = {
+        "v_ret_247_donuts",
+    },
+    IceCreamProp = {
+        "", -- Unkown
+    },
+    BubbleGumStandProp = {
+        "prop_gumball_03",
+    }
 }
 
-Config.BubbleGumStandProp = {
-    "prop_gumball_03",
+Config.CustomProps = {
+    [1] = { -- Add as many Props as you wish
+        Enabled = true, -- Prop Enabled / Disabled
+        PropCoords = vector4(0, 0, 0, 0), -- Prop Coordinate
+        PropModel = '' -- Prop Model | https://forge.plebmasters.de/
+    }
 }
 
 Config.Cooldowns = true
@@ -31,32 +56,32 @@ Config.SlushyCooldownTime = 3 -- Time is in Minutes
 Config.SluckyBuckyDonutCooldownTime = 5 -- Time is in Minutes
 Config.GumballStandCooldownTime = 5 -- Time is in Minutes
 
-Config.SlushyCost = {
+--[[Config.SlushyCost = {]]
+
+Config.Prices = {
+    -- Slushies
+
     RedSlushy = 3,
     GreenSlushy = 3,
     OrangeSlushy = 3,
     YellowSlushy = 3,
     BlueSlushy = 3,
     RainbowSlushy = 3,
-}
-
-Config.SluckyBuckyDonutCost = 8
-
-Config.IceCreamCost = {
+    -- Slucky Bucky Donut
+    SluckyBuckyDonut = 8,
+    -- Ice Cream
     VanillaIceCream = 6,
     ChocolateIceCream = 6,
     MintIceCream = 6,
     CookiesAndCreamIceCream = 6,
+    -- GumBall
+    GumBall = 1
 }
 
-Config.GumBallCost = 1
-
-Config.BubbleGumStandFailChance = true
- -- True = Chance for GumBall Stand to not give GumBall
- -- False = Chance Disabled
+Config.BubbleGumStandFailChance = true -- true = Chance for Gumball Stand to not give GumBall Enabled | false = Chancel for Gumball Stand to not give GumBall Disabled
 
 --Notification Settings
-Config.Notify = "qb" --"qb" = Default (QBCore) | "okok" = OkOkNotify | "mythic" = Mythic Notifications | "tnj" = tnj-notify | "chat" = Simple Chat Message
+Config.Notify = "qb" -- "qb" = Default (QBCore) | "okok" = OkOkNotify | "mythic" = Mythic Notifications | "tnj" = tnj-notify | "chat" = Simple Chat Message
 Config.Notifications = {
     -- Success's
     ["SlushyGive"] = "You\'ve poured a Slushy!",

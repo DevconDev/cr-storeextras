@@ -1,9 +1,9 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local slushy = Config.SlushyProp
-local sluckyduckydonut = Config.DonutProp
-local icecream = Config.IceCreamProp
-local gumballstand = Config.BubbleGumStandProp
+local slushy = Config.Props.SlushyProp
+local sluckyduckydonut = Config.Props.DonutProp
+local icecream = Config.Props.IceCreamProp
+local gumballstand = Config.Props.BubbleGumStandProp
 
 function StoreExtraNotifications(notifType, message, title)
 	if Config.Notify == "qb" then
@@ -44,108 +44,191 @@ function StoreExtraNotifications(notifType, message, title)
 end
 
 Citizen.CreateThread(function()
-    exports['qb-target']:AddTargetModel(slushy,{
-        options = {
-            {
-                type = "client",
-                event = "cr-storeextras:client:RedSlushy",
-                icon = "fas fa-wine-bottle",
-                label = "Pour Red Slushy",
-                price = Config.SlushyCost.RedSlushy,
+    if Config.Framework.Target == 'qb-target' then
+        exports['qb-target']:AddTargetModel(slushy,{
+            options = {
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:RedSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Red Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:GreenSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Green Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:OrangeSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Orange Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:YellowSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Yellow Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:BlueSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Blue Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:RainbowSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Rainbow Slushy"
+                },
             },
-            {
-                type = "client",
-                event = "cr-storeextras:client:GreenSlushy",
-                icon = "fas fa-wine-bottle",
-                label = "Pour Green Slushy",
-                price = Config.SlushyCost.GreenSlushy,
+            distance = 1.5
+        })
+        exports['qb-target']:AddTargetModel(sluckyduckydonut, {
+            options = {
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:SluckyBuckyDonut",
+                    icon = "fas fa-hand-holding",
+                    label = "Grab Slucky Bucky Donut"
+                },
             },
-            {
-                type = "client",
-                event = "cr-storeextras:client:OrangeSlushy",
-                icon = "fas fa-wine-bottle",
-                label = "Pour Orange Slushy",
-                price = Config.SlushyCost.OrangeSlushy,
+            distance = 1.5
+        })
+        exports['qb-target']:AddTargetModel(icecream, {
+            options = {
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:VanillaIceCream",
+                    icon = "fas fa-ice-cream",
+                    label = "Scoop Vanilla Ice Cream"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:ChocolateIceCream",
+                    icon = "fas fa-ice-cream",
+                    label = "Scoop Chocolate Ice Cream"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:MintIceCream",
+                    icon = "fas fa-ice-cream",
+                    label = "Scoop Mint Ice Cream"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:CookiesAndCreamIceCream",
+                    icon = "fas fa-ice-cream",
+                    label = "Scoop Cookies & Cream Ice Cream"
+                },
             },
-            {
-                type = "client",
-                event = "cr-storeextras:client:YellowSlushy",
-                icon = "fas fa-wine-bottle",
-                label = "Pour Yellow Slushy",
-                price = Config.SlushyCost.YellowSlushy,
+            distance = 1.5
+        })
+        exports['qb-target']:AddTargetModel(gumballstand, {
+            options = {
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:BubbleGumStand",
+                    icon = "fas fa-coin",
+                    label = "Grab GumBall"
+                },
             },
-            {
-                type = "client",
-                event = "cr-storeextras:client:BlueSlushy",
-                icon = "fas fa-wine-bottle",
-                label = "Pour Blue Slushy",
-                price = Config.SlushyCost.BlueSlushy,
+            distance = 1.5
+        })
+    elseif Config.Framework.Target == 'qtarget' then
+        exports['qtarget']:AddTargetModel(slushy,{
+            options = {
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:RedSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Red Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:GreenSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Green Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:OrangeSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Orange Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:YellowSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Yellow Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:BlueSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Blue Slushy"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:RainbowSlushy",
+                    icon = "fas fa-wine-bottle",
+                    label = "Pour Rainbow Slushy"
+                },
             },
-            {
-                type = "client",
-                event = "cr-storeextras:client:RainbowSlushy",
-                icon = "fas fa-wine-bottle",
-                label = "Pour Rainbow Slushy",
-                price = Config.SlushyCost.RainbowSlushy,
+            distance = 1.5
+        })
+        exports['qtarget']:AddTargetModel(sluckyduckydonut, {
+            options = {
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:SluckyBuckyDonut",
+                    icon = "fas fa-hand-holding",
+                    label = "Grab Slucky Bucky Donut"
+                },
             },
-        },
-        distance = 1.5
-    })
-    exports['qb-target']:AddTargetModel(sluckyduckydonut, {
-        options = {
-            {
-                type = "client",
-                event = "cr-storeextras:client:SluckyBuckyDonut",
-                icon = "fas fa-hand-holding",
-                label = "Grab Slucky Bucky Donut",
-                price = Config.SluckyBuckyDonutCost,
+            distance = 1.5
+        })
+        exports['qtarget']:AddTargetModel(icecream, {
+            options = {
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:VanillaIceCream",
+                    icon = "fas fa-ice-cream",
+                    label = "Scoop Vanilla Ice Cream"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:ChocolateIceCream",
+                    icon = "fas fa-ice-cream",
+                    label = "Scoop Chocolate Ice Cream"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:MintIceCream",
+                    icon = "fas fa-ice-cream",
+                    label = "Scoop Mint Ice Cream"
+                },
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:CookiesAndCreamIceCream",
+                    icon = "fas fa-ice-cream",
+                    label = "Scoop Cookies & Cream Ice Cream"
+                },
             },
-        },
-        distance = 1.5
-    })
-    exports['qb-target']:AddTargetModel(icecream, {
-        options = {
-            {
-                type = "client",
-                event = "cr-storeextras:client:VanillaIceCream",
-                icon = "fas fa-ice-cream",
-                label = "Scoop Vanilla Ice Cream",
-                price = Config.IceCreamCost.VanillaIceCream,
+            distance = 1.5
+        })
+        exports['qtarget']:AddTargetModel(gumballstand, {
+            options = {
+                {
+                    type = "client",
+                    event = "cr-storeextras:client:BubbleGumStand",
+                    icon = "fas fa-coin",
+                    label = "Grab GumBall"
+                },
             },
-            {
-                type = "client",
-                event = "cr-storeextras:client:ChocolateIceCream",
-                icon = "fas fa-ice-cream",
-                label = "Scoop Chocolate Ice Cream",
-                price = Config.IceCreamCost.ChocolateIceCream,
-            },
-            {
-                type = "client",
-                event = "cr-storeextras:client:MintIceCream",
-                icon = "fas fa-ice-cream",
-                label = "Scoop Mint Ice Cream",
-                price = Config.IceCreamCost.MintIceCream,
-            },
-            {
-                type = "client",
-                event = "cr-storeextras:client:CookiesAndCreamIceCream",
-                icon = "fas fa-ice-cream",
-                label = "Scoop Cookies & Cream Ice Cream",
-                price = Config.IceCreamCost.CookiesAndCreamIceCream,
-            },
-        },
-        distance = 1.5
-    })
-    exports['qb-target']:AddTargetModel(gumballstand, {
-        options = {
-            {
-                type = "client",
-                event = "cr-storeextras:client:BubbleGumStand",
-                icon = "fas fa-coin",
-                label = "Grab GumBall",
-                price = Config.GumBallCost,
-            },
-        },
-        distance = 1.5
-    })
+            distance = 1.5
+        })
+    end
 end)
